@@ -1,0 +1,262 @@
+<Layouts.flash_group flash={@flash} />
+<%= if @current_user do %>
+  <div class="enable-bootstrap mt-0"></div>
+  <div class="flex flex-col ">
+    <main style="flex: 1 0 auto" class="sm:mt-16 mt-12 max-w-[800px] px-4 lg:px-0 mx-auto">
+      <div class="flex flex-col md:flex-row gap-4 items-start md:items-center mt-8">
+        <!-- User avatar -->
+
+        <div class="h-10 w-10 rounded-full overflow-hidden">
+          <img
+            class="w-full opacity-[.88]"
+            src={~p"/images/male.svg"}
+            alt="User avatar"
+          />
+        </div>
+
+        <div>
+          <p class="sm:text-2xl text-xl font-semibold sm:leading-none text-left text-gray-900">
+            Welcome, {@current_user.email}, to
+            the
+            Patent
+            Management
+            System
+          </p>
+          <p class="sm:ext-xl text-lg sm:leading-none text-left mt-2 text-slate-600">
+            Select a service to proceed
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 ">
+        <div class="border border-gray-200 bg-white rounded-lg  px-6 py-6">
+          <p class="text-lg font-semibold leading-none text-slate-700">Apply for a Patent</p>
+          <div class="w-full mt-[51px]  border-b-2 border-black relative after:h-[6px] after:absolute after:w-[102px] after:bg-red-500 after:right-0 after:-bottom-[6px] after:skew-x-[40deg] before:w-8 before:absolute before:h-[6px] before:bg-red-500 before:right-0 before:-bottom-[6px]">
+          </div>
+          <p class="text-sm  mt-8 text-slate-600 w-full min-h-[80px]">
+            Apply for a new patent and submit your application for review.
+          </p>
+          <a
+            href="/patents/new"
+            class="w-full px-4 mt-5 py-2 bg-slate-800 hover:bg-primary-400 shadow rounded-md flex items-center justify-center"
+          >
+            <span class="text-sm font-medium leading-tight text-white">Proceed</span>
+          </a>
+        </div>
+
+        <div class="border border-gray-200 bg-white rounded-lg  px-6 py-6">
+          <p class="text-lg font-semibold leading-none text-slate-700">My Applications</p>
+          <div class="w-full mt-[51px]  border-b-2 border-black relative after:h-[6px] after:absolute after:w-[102px] after:bg-red-500 after:right-0 after:-bottom-[6px] after:skew-x-[40deg] before:w-8 before:absolute before:h-[6px] before:bg-red-500 before:right-0 before:-bottom-[6px]">
+          </div>
+          <p class="text-sm  mt-8 text-slate-600 w-full min-h-[80px]">
+            View and manage your patent applications.
+          </p>
+          <a
+            href="/patents"
+            class="w-full px-4 mt-5 py-2 bg-slate-800 hover:bg-primary-400 shadow rounded-md flex items-center justify-center"
+          >
+            <span class="text-sm font-medium leading-tight text-white">View</span>
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+<% else %>
+  <%!-- hero --%>
+  <section class="relative overflow-hidden bg-white">
+    <div class="overflow-x-hidden">
+      <div class="pt-10 pb-8 md:pb-8 lg:pt-10 lg:pb-8">
+        <div class="relative mx-auto flex max-w-6xl flex-col px-6 lg:flex-row lg:items-center">
+          <div class="w-full text-left lg:ml-0 lg:w-1/2">
+            <h1 class="mt-4 text-4xl leading-tight font-medium sm:text-5xl md:text-6xl xl:text-7xl">
+              We Protect What's Next
+            </h1>
+          </div>
+
+          <div class="relative mt-8 w-full lg:mt-0 lg:w-1/2">
+            <div class="absolute inset-0 rounded-xl bg-black opacity-30 mix-blend-overlay" />
+            <div class="h-75 overflow-hidden rounded-xl sm:h-100 md:h-125 lg:h-auto">
+              <img
+                class="h-full w-full object-cover object-center"
+                src={~p"/images/innovation.webp"}
+                alt="Hero Image"
+                fetchpriority="high"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <%!-- about swiftly --%>
+  <section class="py-10 bg-white">
+    <div class="container mx-auto px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+      <figure>
+        <img
+          src={~p"/images/innovation.webp"}
+          alt="Ip management picture"
+          class="w-full h-auto object-cover rounded-md"
+          width="364"
+          height="305"
+          decoding="async"
+          fetchpriority="high"
+          oncontextmenu="return false"
+        />
+      </figure>
+
+      <div>
+        <h2 class="text-3xl font-semibold text-gray-900">
+          What is IP?
+        </h2>
+
+        <p class="mt-4 text-gray-700 text-base leading-relaxed">
+          IP is a university technology system by Codecraft  Ventures that provides end-to-end solutions for patent offices.
+        </p>
+
+        <div class="mt-6 flex gap-4">
+          <.button variant="primary">
+            <a href="/sign-in">
+              Learn more
+            </a>
+          </.button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <%!-- cta --%>
+  <%!-- <section class="bg-white">
+  <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+    <div class="relative overflow-hidden rounded-md bg-gray-100 px-6 py-8  lg:flex lg:items-center lg:gap-x-16 lg:px-12">
+      <div class="max-w-xl text-center lg:text-left">
+        <h2 class="text-2xl font-semibold tracking-tight text-gray-900 sm:text-3xl">
+          A Million Dollar Solution. ZERO UPFRONT FEES.
+        </h2>
+        <p class="mt-3 text-sm text-gray-600 sm:text-base">
+          A solution that would cost millions of dollars availed at ZERO UPFRONT FEES.
+        </p>
+
+        <div class="mt-6 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
+          <a
+            href="#"
+            class="font-medium text-base bg-red-700 text-white rounded-md  px-6 py-2 hover:bg-red-800 hover:text-white transition-colors duration-300"
+          >
+            Get started
+          </a>
+
+          <a
+            href="#"
+            class="font-medium text-base bg-gray-100 text-gray-900 rounded-md  px-6 py-2 hover:bg-gray-400 hover:text-gray-900 transition-colors duration-300"
+          >
+            View features
+          </a>
+        </div>
+      </div>
+
+
+      <div class=" relative mt-8 flex-1 lg:mt-0">
+        <img
+          src="/images/parcel.svg"
+          alt="Parcel tracking dashboard"
+          width="800"
+          height="500"
+          class="w-full h-auto rounded-lg ring-1 ring-gray-200"
+          fetchpriority="high"
+          decoding="async"
+          oncontextmenu="return false;"
+        />
+      </div>
+    </div>
+  </div>
+</section> --%>
+
+  <%!-- Footer --%>
+  <footer class="bg-white text-gray-700">
+    <div class="mx-auto max-w-7xl px-6 py-12 grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-5">
+      <aside class="md:col-span-2 space-y-4">
+        <span class="text-4xl tracking-tight text-gray-900 font-extrabold mb-4">
+          <a href={~p"/"} class="flex items-center gap-1">
+            <img
+              src={~p"/images/ip.png"}
+              alt="Swiftly  logo"
+              class="h-22 w-auto"
+              width="299"
+              height="224"
+              decoding="async"
+              fetchpriority="high"
+              oncontextmenu="return false;"
+            />
+          </a>
+        </span>
+
+        <p class="text-sm leading-relaxed">
+          <span class="font-semibold text-gray-900"></span> <br /> Invent the Future.
+        </p>
+      </aside>
+
+      <nav class="space-y-3">
+        <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-900">Company</h3>
+        <ul class="space-y-2 text-sm">
+          <li>
+            <a
+              href={~p"/"}
+              class="relative inline-block text-sm font-medium text-gray-600
+         hover:text-gray-900 transition-colors duration-200
+
+         after:absolute after:left-0 after:bottom-0 focus:outline-2 focus:outline-dotted
+         focus:outline-blue-500 focus:outline-offset-2"
+            >
+              About
+            </a>
+          </li>
+          <li>
+            <a
+              href={~p"/"}
+              class="relative inline-block text-sm font-medium text-gray-600
+         hover:text-gray-900 transition-colors duration-200
+
+         after:absolute after:left-0 after:bottom-0 focus:outline-2 focus:outline-dotted
+         focus:outline-blue-500 focus:outline-offset-2"
+            >
+              Blog
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <nav class="space-y-3">
+        <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-900">Legal</h3>
+        <ul class="space-y-2 text-sm">
+          <li>
+            <a
+              href={~p"/terms"}
+              class="relative inline-block text-sm font-medium text-gray-600
+         hover:text-gray-900 transition-colors duration-200
+
+         after:absolute after:left-0 after:bottom-0 focus:outline-2 focus:outline-dotted
+         focus:outline-blue-500 focus:outline-offset-2"
+            >
+              Terms of use
+            </a>
+          </li>
+          <li>
+            <a
+              href={~p"/"}
+              class="relative inline-block text-sm font-medium text-gray-600
+         hover:text-gray-900 transition-colors duration-200
+
+         after:absolute after:left-0 after:bottom-0
+         
+
+          focus:outline-2 focus:outline-dotted
+         focus:outline-blue-500 focus:outline-offset-2"
+            >
+              Privacy policy
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+<% end %>
